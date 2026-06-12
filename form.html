@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Free 2-Week Pass – Anytime Fitness Park Hill &amp; Mayfair</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f2fb;
+      min-height: 100vh;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      background: linear-gradient(155deg, #120c2e 0%, #2d1f66 55%, #574999 100%);
+      padding: 44px 28px 72px;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 48px;
+      background: #f4f2fb;
+      clip-path: ellipse(58% 100% at 50% 100%);
+    }
+
+    .logo {
+      height: 44px;
+      width: auto;
+      display: block;
+      margin: 0 auto 24px;
+    }
+
+    .location-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.8);
+      font-size: 10.5px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 50px;
+      margin-bottom: 22px;
+    }
+
+    .location-chip::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: #9d8fe0;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .hero-headline {
+      font-size: 38px;
+      font-weight: 900;
+      color: white;
+      line-height: 1.05;
+      letter-spacing: -1px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .hero-headline em {
+      font-style: normal;
+      color: #b8aee8;
+    }
+
+    .hero-sub {
+      font-size: 14px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.65;
+      max-width: 270px;
+      margin: 0 auto;
+    }
+
+    /* ─── STATS BAR ─── */
+    .stats-bar {
+      display: flex;
+      background: white;
+      border-radius: 14px;
+      margin: 0 16px;
+      box-shadow: 0 4px 28px rgba(87,73,153,0.14);
+      overflow: hidden;
+      position: relative;
+      z-index: 1;
+    }
+
+    .stat {
+      flex: 1;
+      padding: 16px 8px;
+      text-align: center;
+      border-right: 1px solid #f0edf9;
+    }
+
+    .stat:last-child { border-right: none; }
+
+    .stat-num {
+      font-size: 19px;
+      font-weight: 900;
+      color: #574999;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .stat-label {
+      font-size: 9.5px;
+      color: #aaa;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* ─── FORM AREA ─── */
+    .form-area {
+      padding: 22px 16px 48px;
+    }
+
+    .form-card {
+      background: white;
+      border-radius: 18px;
+      padding: 30px 22px 26px;
+      box-shadow: 0 2px 18px rgba(87,73,153,0.07);
+    }
+
+    .section-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 26px;
+    }
+
+    .section-head span {
+      font-size: 10px;
+      font-weight: 700;
+      color: #574999;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .section-head::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #ede9f8;
+    }
+
+    /* ─── Floating label inputs ─── */
+    .input-row { display: flex; gap: 14px; }
+
+    .field {
+      position: relative;
+      flex: 1;
+      margin-bottom: 30px;
+    }
+
+    .field input {
+      width: 100%;
+      border: none;
+      border-bottom: 2px solid #ddd9f0;
+      padding: 22px 0 8px;
+      font-size: 16px;
+      color: #111;
+      background: transparent;
+      transition: border-color 0.2s;
+      -webkit-appearance: none;
+      border-radius: 0;
+    }
+
+    .field input:focus {
+      outline: none;
+      border-bottom-color: #574999;
+    }
+
+    .field label {
+      position: absolute;
+      top: 18px;
+      left: 0;
+      font-size: 14px;
+      color: #bbb;
+      transition: all 0.18s ease;
+      pointer-events: none;
+    }
+
+    .field input:focus ~ label,
+    .field input:not(:placeholder-shown) ~ label {
+      top: 2px;
+      font-size: 9.5px;
+      font-weight: 700;
+      color: #574999;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .optional-tag {
+      font-weight: 400;
+      font-size: 9px;
+      color: #ccc;
+      text-transform: none;
+      letter-spacing: 0;
+    }
+
+    .rule {
+      border: none;
+      border-top: 1px solid #f0edf9;
+      margin: 2px 0 26px;
+    }
+
+    /* ─── Goal chips ─── */
+    .goals-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 30px;
+    }
+
+    .goal-chip {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 11px 13px;
+      border: 1.5px solid #e4e0f4;
+      border-radius: 9px;
+      cursor: pointer;
+      background: #faf9fe;
+      transition: all 0.15s;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+
+    .goal-chip input[type="checkbox"] { display: none; }
+
+    .chip-dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 2px solid #c5bde8;
+      background: white;
+      flex-shrink: 0;
+      position: relative;
+      transition: all 0.15s;
+    }
+
+    .chip-dot::after {
+      content: '';
+      position: absolute;
+      top: 3px; left: 3px;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: white;
+      opacity: 0;
+      transition: opacity 0.15s;
+    }
+
+    .goal-chip.active {
+      border-color: #574999;
+      background: #eeebf8;
+    }
+
+    .goal-chip.active .chip-dot {
+      background: #574999;
+      border-color: #574999;
+    }
+
+    .goal-chip.active .chip-dot::after { opacity: 1; }
+
+    .chip-text {
+      font-size: 13px;
+      color: #555;
+      line-height: 1.3;
+    }
+
+    .goal-chip.active .chip-text {
+      color: #2d1f66;
+      font-weight: 700;
+    }
+
+    /* ─── CTA ─── */
+    .cta-btn {
+      width: 100%;
+      padding: 17px;
+      background: linear-gradient(135deg, #2d1f66 0%, #574999 100%);
+      color: white;
+      font-size: 13px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 8px 22px rgba(87,73,153,0.38);
+      transition: transform 0.1s, box-shadow 0.1s;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .cta-btn:active {
+      transform: scale(0.98);
+      box-shadow: 0 4px 12px rgba(87,73,153,0.25);
+    }
+
+    .cta-btn:disabled {
+      background: #a89fd4;
+      box-shadow: none;
+      cursor: not-allowed;
+    }
+
+    .error-msg {
+      display: none;
+      color: #c0392b;
+      font-size: 12px;
+      text-align: center;
+      margin-top: 12px;
+    }
+
+    .fine-print {
+      text-align: center;
+      font-size: 10.5px;
+      color: #c8c3e0;
+      margin-top: 14px;
+      line-height: 1.55;
+    }
+
+    /* ─── FOOTER ─── */
+    .footer {
+      background: #120c2e;
+      color: rgba(255,255,255,0.3);
+      text-align: center;
+      padding: 16px;
+      font-size: 9.5px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <div class="hero">
+    <img class="logo"
+      src="https://cdn.prod.website-files.com/66aa8fe9dc4db68f448a978f/6759b321193738fec4167167_logo-white-desktop.svg"
+      alt="Anytime Fitness">
+    <div class="location-chip">Park Hill &amp; Mayfair &middot; Denver</div>
+    <div class="hero-headline">Your Free<br><em>2-Week Pass</em><br>Starts Here</div>
+    <p class="hero-sub">Fill in your details below. Ben will reach out to get you set up — no credit card, no commitment.</p>
+  </div>
+
+  <!-- STATS BAR -->
+  <div class="stats-bar">
+    <div class="stat">
+      <div class="stat-num">24/7</div>
+      <div class="stat-label">Access</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">5,800+</div>
+      <div class="stat-label">Locations</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">$0</div>
+      <div class="stat-label">To start</div>
+    </div>
+  </div>
+
+  <!-- FORM -->
+  <div class="form-area">
+    <div class="form-card">
+
+      <div class="section-head"><span>Your info</span></div>
+
+      <div class="input-row">
+        <div class="field">
+          <input type="text" id="first_name" placeholder=" " autocomplete="given-name" required>
+          <label for="first_name">First name</label>
+        </div>
+        <div class="field">
+          <input type="text" id="last_name" placeholder=" " autocomplete="family-name" required>
+          <label for="last_name">Last name</label>
+        </div>
+      </div>
+
+      <div class="field">
+        <input type="tel" id="phone" placeholder=" " autocomplete="tel" required>
+        <label for="phone">Phone number</label>
+      </div>
+
+      <div class="field">
+        <input type="email" id="email" placeholder=" " autocomplete="email" required>
+        <label for="email">Email address</label>
+      </div>
+
+      <div class="field">
+        <input type="text" id="business" placeholder=" ">
+        <label for="business">Where do you work? <span class="optional-tag">(optional)</span></label>
+      </div>
+
+      <hr class="rule">
+
+      <div class="section-head"><span>Fitness goals</span></div>
+
+      <div class="goals-grid">
+        <label class="goal-chip">
+          <input type="checkbox" value="Weight loss">
+          <div class="chip-dot"></div>
+          <span class="chip-text">Weight loss</span>
+        </label>
+        <label class="goal-chip">
+          <input type="checkbox" value="Build muscle">
+          <div class="chip-dot"></div>
+          <span class="chip-text">Build muscle</span>
+        </label>
+        <label class="goal-chip">
+          <input type="checkbox" value="Cardio & endurance">
+          <div class="chip-dot"></div>
+          <span class="chip-text">Cardio &amp; endurance</span>
+        </label>
+        <label class="goal-chip">
+          <input type="checkbox" value="Stress relief">
+          <div class="chip-dot"></div>
+          <span class="chip-text">Stress relief</span>
+        </label>
+        <label class="goal-chip">
+          <input type="checkbox" value="General fitness">
+          <div class="chip-dot"></div>
+          <span class="chip-text">General fitness</span>
+        </label>
+        <label class="goal-chip">
+          <input type="checkbox" value="Sports performance">
+          <div class="chip-dot"></div>
+          <span class="chip-text">Sports performance</span>
+        </label>
+      </div>
+
+      <button class="cta-btn" id="submit-btn" type="button" onclick="submitForm()">
+        Claim My Free Pass &rarr;
+      </button>
+      <div class="error-msg" id="error-msg"></div>
+      <p class="fine-print">Your info is shared only with Ben at Anytime Fitness Park Hill / Mayfair.</p>
+
+    </div>
+  </div>
+
+  <div class="footer">Anytime Fitness &middot; Park Hill &amp; Mayfair &middot; Denver, CO</div>
+
+  <script>
+    document.querySelectorAll('.goal-chip').forEach(function(chip) {
+      chip.addEventListener('click', function() {
+        var cb = this.querySelector('input[type="checkbox"]');
+        setTimeout(function() {
+          chip.classList.toggle('active', cb.checked);
+        }, 0);
+      });
+    });
+
+    function submitForm() {
+      var btn    = document.getElementById('submit-btn');
+      var errMsg = document.getElementById('error-msg');
+
+      var first = document.getElementById('first_name').value.trim();
+      var last  = document.getElementById('last_name').value.trim();
+      var phone = document.getElementById('phone').value.trim();
+      var email = document.getElementById('email').value.trim();
+
+      if (!first || !last || !phone || !email) {
+        errMsg.textContent = 'Please fill in all required fields.';
+        errMsg.style.display = 'block';
+        return;
+      }
+
+      errMsg.style.display = 'none';
+      btn.disabled = true;
+      btn.textContent = 'Submitting…';
+
+      var goals = [];
+      document.querySelectorAll('.goal-chip input[type="checkbox"]:checked').forEach(function(cb) {
+        goals.push(cb.value);
+      });
+
+      // Send to Formspree in background, redirect immediately
+      fetch('https://formspree.io/f/xabcdefg', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          first_name: first,
+          last_name:  last,
+          phone:      phone,
+          email:      email,
+          business:   document.getElementById('business').value.trim() || '(not provided)',
+          goals:      goals.length ? goals.join(', ') : '(none selected)'
+        })
+      }).catch(function() {});  // silent fail — redirect always happens
+
+      window.location.href = 'thankyou.html';
+    }
+  </script>
+
+</body>
+</html>

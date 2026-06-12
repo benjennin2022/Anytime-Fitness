@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>You're All Set – Anytime Fitness</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f2fb;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      background: linear-gradient(155deg, #120c2e 0%, #2d1f66 55%, #574999 100%);
+      padding: 44px 28px 72px;
+      text-align: center;
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 48px;
+      background: #f4f2fb;
+      clip-path: ellipse(58% 100% at 50% 100%);
+    }
+
+    .logo {
+      height: 44px;
+      width: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* ─── CONTENT ─── */
+    .content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 16px 20px 48px;
+    }
+
+    /* ─── CHECK CARD ─── */
+    .check-card {
+      background: white;
+      border-radius: 18px;
+      padding: 36px 28px 32px;
+      text-align: center;
+      width: 100%;
+      max-width: 380px;
+      box-shadow: 0 4px 28px rgba(87,73,153,0.12);
+      margin-bottom: 16px;
+    }
+
+    .check-ring {
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #2d1f66 0%, #574999 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      box-shadow: 0 8px 24px rgba(87,73,153,0.35);
+    }
+
+    .check-ring svg { color: white; }
+
+    .card-headline {
+      font-size: 28px;
+      font-weight: 900;
+      color: #120c2e;
+      line-height: 1.1;
+      letter-spacing: -0.5px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .card-headline em {
+      font-style: normal;
+      color: #574999;
+    }
+
+    .card-sub {
+      font-size: 14px;
+      color: #777;
+      line-height: 1.65;
+      max-width: 270px;
+      margin: 0 auto 28px;
+    }
+
+    /* ─── STEPS ─── */
+    .steps-card {
+      background: white;
+      border-radius: 18px;
+      padding: 24px 22px;
+      width: 100%;
+      max-width: 380px;
+      box-shadow: 0 2px 16px rgba(87,73,153,0.07);
+      margin-bottom: 24px;
+    }
+
+    .steps-label {
+      font-size: 10px;
+      font-weight: 700;
+      color: #574999;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .steps-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #ede9f8;
+    }
+
+    .step {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .step:last-child { margin-bottom: 0; }
+
+    .step-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #2d1f66 0%, #574999 100%);
+      color: white;
+      font-size: 12px;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .step-body {
+      padding-top: 2px;
+    }
+
+    .step-title {
+      font-size: 14px;
+      font-weight: 800;
+      color: #120c2e;
+      margin-bottom: 2px;
+    }
+
+    .step-desc {
+      font-size: 13px;
+      color: #888;
+      line-height: 1.5;
+    }
+
+    /* ─── BACK BTN ─── */
+    .back-btn {
+      display: inline-block;
+      padding: 13px 36px;
+      border: 2px solid #574999;
+      border-radius: 50px;
+      color: #574999;
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-decoration: none;
+      -webkit-tap-highlight-color: transparent;
+      transition: all 0.15s;
+    }
+
+    .back-btn:active {
+      background: #574999;
+      color: white;
+    }
+
+    /* ─── FOOTER ─── */
+    .footer {
+      background: #120c2e;
+      color: rgba(255,255,255,0.3);
+      text-align: center;
+      padding: 16px;
+      font-size: 9.5px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hero">
+    <img class="logo"
+      src="https://cdn.prod.website-files.com/66aa8fe9dc4db68f448a978f/6759b321193738fec4167167_logo-white-desktop.svg"
+      alt="Anytime Fitness">
+  </div>
+
+  <div class="content">
+
+    <div class="check-card">
+      <div class="check-ring">
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"/>
+        </svg>
+      </div>
+      <div class="card-headline">You're in.<br><em>Let's get moving.</em></div>
+      <p class="card-sub">Thanks for signing up. Ben will reach out shortly to get your free 2-week pass activated.</p>
+    </div>
+
+    <div class="steps-card">
+      <div class="steps-label">What happens next</div>
+
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-title">Ben gets your info</div>
+          <div class="step-desc">He'll contact you within 24 hours to set everything up.</div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-title">Quick tour on your schedule</div>
+          <div class="step-desc">See the gym, meet the coaches, ask anything you want.</div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <div class="step-title">Start your 2-week pass</div>
+          <div class="step-desc">No credit card. No commitment. Just results.</div>
+        </div>
+      </div>
+    </div>
+
+    <a href="form.html" class="back-btn">Submit another</a>
+
+  </div>
+
+  <div class="footer">Anytime Fitness &middot; Park Hill &amp; Mayfair &middot; Denver, CO</div>
+
+</body>
+</html>
